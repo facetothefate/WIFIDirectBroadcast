@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WIFI direct Broadcast</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="port_used">port is already used by other software</string>
+    <string name="bind_failed">You need to choose another port for the %s server !</string>
+
+</resources>
