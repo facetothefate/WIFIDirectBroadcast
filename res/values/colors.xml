@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="status_bar_color">#FF000000</color>
+    <color name="layout_border_color">#FF111111</color>
+    <color name="drawer_text_color">#FFFFFF</color>
+    <color name="drawer_status_color">#00FF00</color>
+</resources>

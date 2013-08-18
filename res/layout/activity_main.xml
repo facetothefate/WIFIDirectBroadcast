@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/layout_border_color"
+    tools:context=".MainActivity" >
+
+    <VideoView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_gravity="center_vertical|center_horizontal"
+        />
+
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:content="@+id/content"
+        android:handle="@+id/handle" >
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <fragment
+                android:id="@+id/frag_detail"
+                android:name="com.facework.core.wifidirect.DeviceDetailFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="205dp"
+                android:layout_marginTop="0dp" />
+            <fragment
+                android:id="@+id/frag_list"
+                android:name="com.facework.core.wifidirect.DeviceListFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" />
+
+            
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal|clip_horizontal"
+            android:text="Peers"
+            android:textColor="@color/drawer_text_color"
+            android:textColorHint="@color/drawer_text_color" />
+
+    </SlidingDrawer>
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test player" />
+
+</FrameLayout>
