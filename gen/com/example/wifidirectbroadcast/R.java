@@ -14,6 +14,7 @@ public final class R {
         public static final int drawer_status_color=0x7f040003;
         public static final int drawer_text_color=0x7f040002;
         public static final int layout_border_color=0x7f040001;
+        public static final int setting_title_color=0x7f040004;
         public static final int status_bar_color=0x7f040000;
     }
     public static final class dimen {
@@ -33,45 +34,84 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
         public static final int machine=0x7f020004;
         public static final int section_header=0x7f020005;
+        public static final int settings=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f090018;
-        public static final int atn_direct_discover=0x7f090017;
-        public static final int atn_direct_enable=0x7f090016;
-        public static final int btn_connect=0x7f090008;
-        public static final int btn_disconnect=0x7f090009;
-        public static final int btn_start_client=0x7f09000a;
-        public static final int content=0x7f090003;
-        public static final int device_address=0x7f09000b;
-        public static final int device_details=0x7f090015;
-        public static final int device_info=0x7f09000c;
-        public static final int device_name=0x7f090014;
-        public static final int frag_detail=0x7f090005;
-        public static final int frag_list=0x7f090006;
-        public static final int group_ip=0x7f09000e;
-        public static final int group_owner=0x7f09000d;
-        public static final int handle=0x7f090004;
-        public static final int icon=0x7f090011;
+        public static final int IP_address=0x7f090003;
+        public static final int IP_play=0x7f090002;
+        public static final int action_settings=0x7f09002e;
+        public static final int atn_direct_discover=0x7f09002a;
+        public static final int atn_direct_enable=0x7f09002b;
+        public static final int atn_exit=0x7f09002d;
+        public static final int atn_options=0x7f09002c;
+        public static final int btn_connect=0x7f090009;
+        public static final int btn_disconnect=0x7f09000a;
+        public static final int btn_start_client=0x7f09000b;
+        public static final int content=0x7f090005;
+        public static final int device_address=0x7f09000c;
+        public static final int device_details=0x7f090016;
+        public static final int device_info=0x7f09000d;
+        public static final int device_name=0x7f090015;
+        public static final int frag_detail=0x7f090007;
+        public static final int frag_list=0x7f090008;
+        public static final int group_ip=0x7f09000f;
+        public static final int group_owner=0x7f09000e;
+        public static final int handle=0x7f090006;
+        public static final int icon=0x7f090012;
         public static final int main=0x7f090000;
-        public static final int my_name=0x7f090012;
-        public static final int my_status=0x7f090013;
+        public static final int my_name=0x7f090013;
+        public static final int my_status=0x7f090014;
         public static final int preview=0x7f090001;
-        public static final int slidingDrawer1=0x7f090002;
-        public static final int status_bar=0x7f09000f;
-        public static final int status_text=0x7f090010;
-        public static final int test=0x7f090007;
+        public static final int scrollView1=0x7f090018;
+        public static final int scrollView2=0x7f090022;
+        public static final int setting=0x7f090017;
+        public static final int setting_addttional_send=0x7f09001d;
+        public static final int setting_addttional_send_value=0x7f09001e;
+        public static final int setting_block_size=0x7f09001b;
+        public static final int setting_block_size_Value=0x7f09001c;
+        public static final int setting_loss_client_item_0=0x7f090024;
+        public static final int setting_loss_client_item_1=0x7f090025;
+        public static final int setting_loss_client_item_2=0x7f090026;
+        public static final int setting_loss_client_item_3=0x7f090027;
+        public static final int setting_loss_client_item_4=0x7f090028;
+        public static final int setting_loss_client_item_5=0x7f090029;
+        public static final int setting_loss_client_radioGroup=0x7f090023;
+        public static final int setting_loss_client_title=0x7f090021;
+        public static final int setting_rtp_switch1=0x7f09001a;
+        public static final int setting_tunnel_switch=0x7f090020;
+        public static final int slidingDrawer1=0x7f090004;
+        public static final int status_bar=0x7f090010;
+        public static final int status_text=0x7f090011;
+        public static final int textView1=0x7f090019;
+        public static final int textView2=0x7f09001f;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int device_detail=0x7f030001;
         public static final int device_list=0x7f030002;
         public static final int row_devices=0x7f030003;
+        public static final int setting=0x7f030004;
     }
     public static final class menu {
         public static final int action_items=0x7f080000;
         public static final int main=0x7f080001;
     }
     public static final class string {
+        public static final int Setting_Addttional_Send=0x7f060016;
+        public static final int Setting_EC_Block_Size=0x7f060015;
+        public static final int Setting_RTP_Switch=0x7f060021;
+        public static final int Setting_RTP_Switch1=0x7f060022;
+        public static final int Setting_Title=0x7f060013;
+        public static final int Setting_Tunnel_Switch=0x7f060020;
+        public static final int Setting_loss_control_client=0x7f060018;
+        public static final int Setting_loss_control_client_item0=0x7f060019;
+        public static final int Setting_loss_control_client_item1=0x7f06001a;
+        public static final int Setting_loss_control_client_item2=0x7f06001b;
+        public static final int Setting_loss_control_client_item3=0x7f06001c;
+        public static final int Setting_loss_control_client_item4=0x7f06001d;
+        public static final int Setting_loss_control_client_item5=0x7f06001e;
+        public static final int Setting_subTitle_Loss=0x7f060014;
+        public static final int Setting_subTitle_RTP=0x7f06001f;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
         public static final int bind_failed=0x7f060004;
@@ -82,12 +122,14 @@ public final class R {
         public static final int empty=0x7f06000a;
         public static final int empty_message=0x7f06000e;
         public static final int enable_p2p_button=0x7f060005;
+        public static final int exit=0x7f060023;
         public static final int get_file_button=0x7f060009;
         public static final int group_owner_text=0x7f060010;
         public static final int hello_world=0x7f060002;
         public static final int label_me=0x7f060011;
         public static final int label_peers=0x7f060012;
         public static final int no=0x7f06000c;
+        public static final int options=0x7f060017;
         public static final int p2p_off_warning=0x7f06000f;
         public static final int port_used=0x7f060003;
         public static final int yes=0x7f06000b;
@@ -119,5 +161,8 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        /**  Dialog_Fullscreen theme. 
+         */
+        public static final int Dialog_Fullscreen=0x7f070002;
     }
 }

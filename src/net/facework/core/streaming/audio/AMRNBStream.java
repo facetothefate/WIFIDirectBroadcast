@@ -23,7 +23,7 @@ package net.facework.core.streaming.audio;
 import java.io.IOException;
 
 import net.facework.core.streaming.MediaStream;
-import net.facework.core.streaming.rtp.AMRNBPacketizer;
+import net.facework.core.streaming.transportPacketizer.AMRNBPacketizer;
 import android.media.MediaRecorder;
 
 /**

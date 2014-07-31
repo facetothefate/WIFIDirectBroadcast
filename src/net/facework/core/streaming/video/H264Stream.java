@@ -25,9 +25,11 @@ import java.io.IOException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import com.facework.configuration.ServerConf;
 import com.facework.core.mp4.MP4Config;
 
-import net.facework.core.streaming.rtp.H264Packetizer;
+import net.facework.core.streaming.transportPacketizer.ECRtpV2H264Packetizer;
+import net.facework.core.streaming.transportPacketizer.H264Packetizer;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.media.MediaRecorder;
@@ -55,8 +57,16 @@ public class H264Stream extends VideoStream {
 	 */
 	public H264Stream(int cameraId) throws IOException {
 		super(cameraId);
+		if(ServerConf.TRANS==ServerConf.EC_RTP_V2){
+			this.mPacketizer = new ECRtpV2H264Packetizer();
+			this.mPacketizer.setVideoFps(mQuality.framerate);
+		}
+		else{
+			this.mPacketizer = new H264Packetizer();
+			this.mPacketizer.setVideoFps(mQuality.framerate);
+		}
 		setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-		this.mPacketizer = new H264Packetizer();
+		
 	}
 	
 	/**

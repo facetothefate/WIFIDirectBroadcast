@@ -3,20 +3,42 @@ package net.facework.core.streaming.video;
 import java.io.File;
 import java.io.IOException;
 
+import com.facework.configuration.ServerConf;
+
 import android.content.SharedPreferences;
 import android.util.Log;
 //import android.content.SharedPreferences.Editor;
 
 import net.facework.core.streaming.FileMediaStream;
-import net.facework.core.streaming.rtp.H264Packetizer;
+import net.facework.core.streaming.transportPacketizer.ECRtpPacketizer;
+import net.facework.core.streaming.transportPacketizer.ECRtpV2H264Packetizer;
+import net.facework.core.streaming.transportPacketizer.H264Packetizer;
 
 public class H264FileStream extends FileMediaStream{
 	//static private SharedPreferences settings = null;
 	public H264FileStream(File f){
 		super();
 		try {
-			this.mPacketizer = new H264Packetizer();
-			this.mPacketizer.setFileMode();
+			if(ServerConf.TRANS==ServerConf.EC_RTP)
+			{
+				this.mPacketizer= new ECRtpPacketizer();
+				if(ServerConf.TUNNEL==ServerConf.ON){
+					this.mPacketizer.setTunnelChannel("video");
+				}
+			}
+			else if(ServerConf.TRANS==ServerConf.RTP){
+				this.mPacketizer = new H264Packetizer();
+				this.mPacketizer.setFileMode();
+				
+			}
+			else if(ServerConf.TRANS==ServerConf.EC_RTP_V2){
+				this.mPacketizer = new ECRtpV2H264Packetizer();
+				this.mPacketizer.setFileMode();
+			}
+			else{
+				this.mPacketizer = new H264Packetizer();
+				this.mPacketizer.setFileMode();
+			}
 			//this.mPacketizer.setMaxFrame(mp4.videoCount);
 			this.modeFlag=VIDEO;
 			//Boolean checking=MP4SpsPps.checkMP4_MOOV(this.file);

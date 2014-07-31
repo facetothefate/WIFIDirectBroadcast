@@ -15,7 +15,7 @@ import android.net.LocalSocket;
 import android.net.LocalSocketAddress;
 import android.util.Log;
 
-import net.facework.core.streaming.rtp.AbstractPacketizer;
+import net.facework.core.streaming.transportPacketizer.AbstractPacketizer;
 
 /**
  * this class used to make the Spydroid RTSP server support mp4 file 
@@ -37,6 +37,7 @@ public abstract class FileMediaStream implements Stream {
 	private int mSocketId;
 	private boolean running =false; 
 	private static final int BUFFER_SIZE = 384000;
+	
 	
 	private byte[] tsMarkNal= new byte[9];
 	// add this nal to the H264 video steam
@@ -134,8 +135,8 @@ public abstract class FileMediaStream implements Stream {
 		                        		mSender.setSendBufferSize(BUFFER_SIZE);  
 		             	                mSender.setReceiveBufferSize(BUFFER_SIZE); 
 		             	                raf.seek(start);
-		             	                m_Send.write(tsMarkNal);  
-		             	                m_Send.flush();
+		             	                //m_Send.write(tsMarkNal);  
+		             	                //m_Send.flush();
 		                        		if(length<BUFFER_SIZE){
 		                        			//Log.d(TAG,"length:"+length);
 		                        			data=new byte[length];
@@ -335,10 +336,11 @@ public abstract class FileMediaStream implements Stream {
 	@Override
 	public void setDestination(InetAddress dest, int dport) {
 		this.mPacketizer.setDestination(dest, dport);
+		Log.i(TAG,"dest :"+dest+":"+dport);
 	}
 
 	/** 
-	 * Sets the Time To Live of the underlying {@link net.facework.core.streaming.rtp.RtpSocket}. 
+	 * Sets the Time To Live of the underlying {@link net.facework.core.streaming.transportPacketizer.ECRtpSocket}. 
 	 * @throws IOException 
 	 **/
 	@Override
@@ -359,7 +361,7 @@ public abstract class FileMediaStream implements Stream {
 	}
 
 	/**
-	 * Returns the SSRC of the underlying {@link net.facework.core.streaming.rtp.RtpSocket}.
+	 * Returns the SSRC of the underlying {@link net.facework.core.streaming.transportPacketizer.ECRtpSocket}.
 	 * @return the SSRC of underlying RTP socket
 	 */
 	@Override

@@ -20,4 +20,21 @@
     <string name="group_owner_text">"Am I the Group Owner? "</string>
     <string name="label_me">ME</string>
     <string name="label_peers">PEERS</string>
+    <string name="Setting_Title">Server Settings </string>
+    <string name="Setting_subTitle_Loss">Server Settings</string>
+    <string name="Setting_EC_Block_Size">EC block size </string>
+    <string name="Setting_Addttional_Send">Addtional packets to send</string>
+    <string name="options">Server Settings</string>
+    <string name="Setting_loss_control_client">Lost simulation(Client side)</string>
+    <string name="Setting_loss_control_client_item0">0%</string>
+    <string name="Setting_loss_control_client_item1">10%</string>
+    <string name="Setting_loss_control_client_item2">20%</string>
+    <string name="Setting_loss_control_client_item3">30%</string>
+    <string name="Setting_loss_control_client_item4">40%</string>
+    <string name="Setting_loss_control_client_item5">80%</string>
+    <string name="Setting_subTitle_RTP">Client Setings</string>
+    <string name="Setting_Tunnel_Switch">Use EC2RTP Tunnel</string>
+    <string name="Setting_RTP_Switch">Use EC-RTP Ver.1</string>
+    <string name="Setting_RTP_Switch1">Use EC-RTP Ver.2</string>
+    <string name="exit">exit</string>
 </resources>

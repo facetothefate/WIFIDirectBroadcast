@@ -78,7 +78,7 @@ public class Session {
 	// Indicates if a session is already streaming audio or video
 	static Session mSessionUsingTheCamera = null;
 	static Session mSessionUsingTheMic = null;
-
+	
 	// Prevents threads from modifying two sessions simultaneously
 	private static Object sLock = new Object();
 

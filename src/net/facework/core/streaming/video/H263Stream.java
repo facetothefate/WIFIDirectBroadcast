@@ -22,7 +22,7 @@ package net.facework.core.streaming.video;
 
 import java.io.IOException;
 
-import net.facework.core.streaming.rtp.H263Packetizer;
+import net.facework.core.streaming.transportPacketizer.H263Packetizer;
 import android.media.MediaRecorder;
 
 /**

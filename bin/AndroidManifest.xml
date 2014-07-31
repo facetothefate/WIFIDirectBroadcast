@@ -38,6 +38,8 @@
             </intent-filter>
         </activity>
         <service android:name="net.facework.core.streaming.misc.RtspServer"></service>
+        <service android:name="net.facework.core.streaming.misc.SocketTunnel"></service>
+        <service android:name="net.facework.core.streaming.misc.ECRTP2RTPTunnel"></service>
     </application>
 
 </manifest>

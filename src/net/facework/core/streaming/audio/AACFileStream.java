@@ -1,9 +1,13 @@
 package net.facework.core.streaming.audio;
 
 import java.io.IOException;
+import java.util.Date;
+
+import com.facework.configuration.ServerConf;
 
 import net.facework.core.streaming.FileMediaStream;
-import net.facework.core.streaming.rtp.AACADTSPacketizer;
+import net.facework.core.streaming.transportPacketizer.AACADTSPacketizer;
+import net.facework.core.streaming.transportPacketizer.ECRtpPacketizer;
 
 public class AACFileStream extends FileMediaStream {
 
@@ -45,8 +49,20 @@ public class AACFileStream extends FileMediaStream {
 		super();
 		AACADTSPacketizer packetizer = new AACADTSPacketizer();
 		packetizer.setSamplingRate((int)mp4.samplingRate);
+		/*if(ServerConf.TRANS==ServerConf.EC_RTP)
+		{
+			this.mPacketizer= new ECRtpPacketizer();
+			if(ServerConf.TUNNEL==ServerConf.ON){
+				this.mPacketizer.setTunnelChannel("audio");
+			}
+		}
+		else if(ServerConf.TRANS==ServerConf.RTP){
+			this.mPacketizer = packetizer;
+			this.mPacketizer.setFileMode();
+		}*/
 		this.mPacketizer = packetizer;
 		this.mPacketizer.setFileMode();
+		this.mPacketizer.setStartTs(new Date().getTime());
 		this.modeFlag=AUDIO;
 		for(int i=0;i<sADTSSamplingRates.length;i++){
 			if(mp4.samplingRate==sADTSSamplingRates[i]){

@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Random;
 
-import net.facework.core.streaming.rtp.AbstractPacketizer;
+import net.facework.core.streaming.transportPacketizer.AbstractPacketizer;
 import android.media.MediaRecorder;
 import android.net.LocalServerSocket;
 import android.net.LocalSocket;
@@ -74,7 +74,7 @@ public abstract class MediaStream extends MediaRecorder implements Stream {
 	}
 
 	/** 
-	 * Sets the Time To Live of the underlying {@link net.facework.core.streaming.rtp.RtpSocket}. 
+	 * Sets the Time To Live of the underlying {@link net.facework.core.streaming.transportPacketizer.ECRtpSocket}. 
 	 * @throws IOException 
 	 **/
 	@Override
@@ -180,7 +180,7 @@ public abstract class MediaStream extends MediaRecorder implements Stream {
 	}
 
 	/**
-	 * Returns the SSRC of the underlying {@link net.facework.core.streaming.rtp.RtpSocket}.
+	 * Returns the SSRC of the underlying {@link net.facework.core.streaming.transportPacketizer.ECRtpSocket}.
 	 * @return the SSRC of underlying RTP socket
 	 */
 	@Override

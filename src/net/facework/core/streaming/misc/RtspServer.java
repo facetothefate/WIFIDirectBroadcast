@@ -78,11 +78,13 @@ public class RtspServer extends Service {
 	protected String mPortKey = "rtsp_port";
 
 	private int mPort = DEFAULT_RTSP_PORT;
-	private boolean mEnabled = true, mRestart = false;
+	protected boolean mEnabled = true, mRestart = false;
 	private RequestListener mListenerThread;
 	private SharedPreferences mSharedPreferences;
 	private final IBinder mBinder = new LocalBinder();
 	private final LinkedList<CallbackListener> mListeners = new LinkedList<CallbackListener>();
+	
+	
 
 	public RtspServer() {
 	}
@@ -118,6 +120,9 @@ public class RtspServer extends Service {
 	/** Returns the port used by the RTSP server. */	
 	public int getPort() {
 		return mPort;
+	}
+	public void setPort(int port){
+		this.mPort=port;
 	}
 
 	/** Starts (or restart if needed) the RTSP server. */
@@ -375,47 +380,54 @@ public class RtspServer extends Service {
 			else if (request.method.toUpperCase().equals("SETUP")) {
 				Pattern p; Matcher m;
 				int p2, p1, ssrc, src,trackId;
-
-				p = Pattern.compile("trackID=(\\w+)",Pattern.CASE_INSENSITIVE);
-				m = p.matcher(request.uri);
-
-				if (!m.find()) {
-					response.status = Response.STATUS_BAD_REQUEST;
-					return response;
-				} 
-
-				trackId = Integer.parseInt(m.group(1));
-
-				if (!mSession.trackExists(trackId)) {
-					response.status = Response.STATUS_NOT_FOUND;
-					return response;
+				/*if(Session.isXorOn){
+					response.attributes = "REDIRECT: RTSP/1.0\r\n" +
+							"location: "+ "rtsp://127.0.0.1:8086/11.mp4" + "\r\n";
+					response.status = Response.STATUS_OK;
 				}
+				else{*/
 
-				p = Pattern.compile("client_port=(\\d+)-(\\d+)",Pattern.CASE_INSENSITIVE);
-				m = p.matcher(request.headers.get("transport"));
-
-				if (!m.find()) {
-					int port = mSession.getTrackDestinationPort(trackId);
-					p1 = port;
-					p2 = port+1;
-				}
-				else {
-					p1 = Integer.parseInt(m.group(1)); 
-					p2 = Integer.parseInt(m.group(2));
-				}
-
-				ssrc = mSession.getTrackSSRC(trackId);
-				src = mSession.getTrackLocalPort(trackId);
-				mSession.setTrackDestinationPort(trackId, p1);
-
-				mSession.start(trackId);
-				response.attributes = "Transport: RTP/AVP/UDP;"+mSession.getRoutingScheme()+";destination="+mSession.getDestination().getHostAddress()+";client_port="+p1+"-"+p2+";server_port="+src+"-"+(src+1)+";ssrc="+Integer.toHexString(ssrc)+";mode=play\r\n" +
-						"Session: "+ "1185d20035702ca" + "\r\n" +
-						"Cache-Control: no-cache\r\n";
-				response.status = Response.STATUS_OK;
-
-				// If no exception has been thrown, we reply with OK
-				response.status = Response.STATUS_OK;
+					p = Pattern.compile("trackID=(\\w+)",Pattern.CASE_INSENSITIVE);
+					m = p.matcher(request.uri);
+	
+					if (!m.find()) {
+						response.status = Response.STATUS_BAD_REQUEST;
+						return response;
+					} 
+	
+					trackId = Integer.parseInt(m.group(1));
+	
+					if (!mSession.trackExists(trackId)) {
+						response.status = Response.STATUS_NOT_FOUND;
+						return response;
+					}
+	
+					p = Pattern.compile("client_port=(\\d+)-(\\d+)",Pattern.CASE_INSENSITIVE);
+					m = p.matcher(request.headers.get("transport"));
+	
+					if (!m.find()) {
+						int port = mSession.getTrackDestinationPort(trackId);
+						p1 = port;
+						p2 = port+1;
+					}
+					else {
+						p1 = Integer.parseInt(m.group(1)); 
+						p2 = Integer.parseInt(m.group(2));
+					}
+	
+					ssrc = mSession.getTrackSSRC(trackId);
+					src = mSession.getTrackLocalPort(trackId);
+					mSession.setTrackDestinationPort(trackId, p1);
+	
+					mSession.start(trackId);
+					response.attributes = "Transport: RTP/AVP/UDP;"+mSession.getRoutingScheme()+";destination="+mSession.getDestination().getHostAddress()+";client_port="+p1+"-"+p2+";server_port="+src+"-"+(src+1)+";ssrc="+Integer.toHexString(ssrc)+";mode=play\r\n" +
+							"Session: "+ "1185d20035702ca" + "\r\n" +
+							"Cache-Control: no-cache\r\n";
+					response.status = Response.STATUS_OK;
+	
+					// If no exception has been thrown, we reply with OK
+					response.status = Response.STATUS_OK;
+				//}
 
 			}
 

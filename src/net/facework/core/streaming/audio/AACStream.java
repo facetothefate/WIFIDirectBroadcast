@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 import net.facework.core.streaming.MediaStream;
-import net.facework.core.streaming.rtp.AACADTSPacketizer;
+import net.facework.core.streaming.transportPacketizer.AACADTSPacketizer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 import android.util.Log;

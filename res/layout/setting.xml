@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+                <TextView
+		        android:id="@+id/textView1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/Setting_subTitle_Loss"
+		        android:textAppearance="?android:attr/textAppearanceSmall"
+		        android:textColor="@color/setting_title_color" />
+		
+			<View
+			    android:layout_width="fill_parent"
+			    android:layout_height="3dp"
+			    android:background="?android:attr/listDivider"
+			/>
+		
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical" 
+			    android:padding="10dp">
+
+				<Switch
+				    android:id="@+id/setting_rtp_switch1"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginTop="10dp"
+				    android:text="@string/Setting_RTP_Switch1" />
+
+				<View
+				    android:layout_width="fill_parent"
+				    android:layout_height="1dp"
+				    android:layout_marginTop="10dp"
+				    android:background="?android:attr/listDivider" />
+
+				<TextView
+				    android:id="@+id/setting_block_size"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginTop="10dp"
+				    android:text="@string/Setting_EC_Block_Size"
+				    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+				<EditText
+				    android:id="@+id/setting_block_size_Value"
+				    android:layout_width="63dp"
+				    android:layout_height="wrap_content"
+				    android:ems="10"
+				    android:inputType="number" />
+			    
+			    <View
+					android:layout_width="fill_parent"
+					android:layout_height="1dp"
+					android:background="?android:attr/listDivider"
+					android:layout_marginTop="10dp" 
+				/>
+
+			    <TextView
+			        android:id="@+id/setting_addttional_send"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="10dp"
+			        android:text="@string/Setting_Addttional_Send"
+			        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+			    <EditText
+			        android:id="@+id/setting_addttional_send_value"
+			        android:layout_width="63dp"
+			        android:layout_height="wrap_content"
+			        android:ems="10"
+			        android:inputType="number" />
+			    
+			   
+		
+			<TextView
+			    android:id="@+id/textView2"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="10dp"
+			    android:text="@string/Setting_subTitle_RTP"
+			    android:textAppearance="?android:attr/textAppearanceSmall"
+			    android:textColor="@color/setting_title_color" />
+		
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="3dp"
+				android:background="?android:attr/listDivider"
+			/>
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+			    android:padding="10dp" >
+
+			    <Switch
+			        android:id="@+id/setting_tunnel_switch"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/Setting_Tunnel_Switch" 
+			        android:layout_marginTop="10dp"/>
+
+		    </LinearLayout>
+
+			<View
+			    android:layout_width="fill_parent"
+			    android:layout_height="1dp"
+			    android:layout_marginTop="10dp"
+			    android:background="?android:attr/listDivider" />
+
+		     <TextView
+			        android:id="@+id/setting_loss_client_title"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/Setting_loss_control_client"
+			        android:textAppearance="?android:attr/textAppearanceMedium" 
+			        android:layout_marginTop="20dp" />
+			    <HorizontalScrollView
+			        android:id="@+id/scrollView2"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal" >
+					<RadioGroup
+			        android:id="@+id/setting_loss_client_radioGroup"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content" 
+			        android:layout_marginTop="5dp"
+			        android:orientation="horizontal">
+
+				        <RadioButton
+				            android:id="@+id/setting_loss_client_item_0"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:checked="true"
+				            android:text="@string/Setting_loss_control_client_item0" />
+				
+				        <RadioButton
+				            android:id="@+id/setting_loss_client_item_1"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:text="@string/Setting_loss_control_client_item1" />
+				
+				        <RadioButton
+				            android:id="@+id/setting_loss_client_item_2"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content" 
+				            android:text="@string/Setting_loss_control_client_item2" />
+				
+				        <RadioButton
+				            android:id="@+id/setting_loss_client_item_3"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:text="@string/Setting_loss_control_client_item3" />
+				
+				        <RadioButton
+				            android:id="@+id/setting_loss_client_item_4"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:text="@string/Setting_loss_control_client_item4" />
+				        <RadioButton
+				            android:id="@+id/setting_loss_client_item_5"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:text="@string/Setting_loss_control_client_item5" />
+			        </RadioGroup>
+		        </HorizontalScrollView>
+			</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

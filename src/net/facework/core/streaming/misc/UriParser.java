@@ -57,7 +57,7 @@ public class UriParser {
 	public static String filename=null;
 	public static void parse(String uri, Session session) throws IllegalStateException, IOException {
 		boolean flash = false;
-		int camera = CameraInfo.CAMERA_FACING_BACK;
+		int camera = CameraInfo.CAMERA_FACING_FRONT;
 		Log.i("UriParser","RTSP server received:"+uri);
 		String[] uriItem=uri.split("/");
 		filename=uriItem[uriItem.length-1];
@@ -189,13 +189,19 @@ public class UriParser {
 			
 		} 
 		else if (!filename.contains(":")){
-			Log.i("UriParser","file name:"+filename);
-			session.setFile(filename);
-			session.addFileVideoTrack(Session.FILE_VIDEO_H264);
-			Log.i("UriParser","RTSP work in FILE_VIDEO_H264 Mode. FILE:"+filename);
-			session.addFileAudioTrack(Session.FILE_AUDIO_AAC);
-			Log.i("UriParser","RTSP work in FILE_AUDIO_AAC Mode. FILE:"+filename);
-			session.setFileMode();
+			if(filename.equals("h264.sdp")){
+				VideoQuality quality = VideoQuality.defaultVideoQualiy.clone();
+				session.addVideoTrack(Session.VIDEO_H264, camera, quality, flash);
+			}
+			else{
+				Log.i("UriParser","file name:"+filename+";");
+				session.setFile(filename);
+				session.addFileVideoTrack(Session.FILE_VIDEO_H264);
+				Log.i("UriParser","RTSP work in FILE_VIDEO_H264 Mode. FILE:"+filename);
+				/*session.addFileAudioTrack(Session.FILE_AUDIO_AAC);
+				Log.i("UriParser","RTSP work in FILE_AUDIO_AAC Mode. FILE:"+filename);*/
+				session.setFileMode();
+			}
 			
 		}
 		// Uri has no parameters: the default behavior is to only add one video track

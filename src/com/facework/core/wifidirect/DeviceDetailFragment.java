@@ -110,7 +110,8 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
                     @Override
                     public void onClick(View v) {
-                    	MainActivity.player.setVideoURI(Uri.parse("rtsp://"+info.groupOwnerAddress.getHostAddress()+":8086/11.mp4"));
+                    	MainActivity.loadingDialog=ProgressDialog.show(getActivity(), "loading...", "please wait");
+                    	MainActivity.player.setVideoURI(Uri.parse("rtsp://"+info.groupOwnerAddress.getHostAddress()+":8086/h264.sdp"));
                     	MainActivity.player.requestFocus();
                     	MainActivity.player.start();
                     	
